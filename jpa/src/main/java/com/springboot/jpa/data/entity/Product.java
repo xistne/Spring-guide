@@ -1,9 +1,19 @@
 package com.springboot.jpa.data.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "name")
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "product")
 public class Product {
     @Id
@@ -19,45 +29,7 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
+    private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }
